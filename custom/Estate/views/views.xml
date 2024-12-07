@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="estate_property_list">
+          <field name="name">Estate Property List</field>
+          <field name="model">estate.property</field>
+          <field name="arch" type="xml">
+            <tree>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="bedrooms"/>
+              <field name="garden"/>
+              <field name="garage"/>
+              <field name="date_availability"/>
+              <field name="selling_price"/>
+              <field name="owner"/>
+              <field name="telephone"/>
+            </tree>
+          </field>
+        </record>
+
+    <record model="ir.ui.view" id="estate_property_form">
+      <field name="name">Estate Property Form</field>
+      <field name="model">estate.property</field>
+      <field name="arch" type="xml">
+        <form string="Alfonzo">
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="selling_price"/>
+                    </group>
+                    <group>
+
+                        <field name="bedrooms"/>
+                        <field name="garden"/>
+                        <field name="garage"/>
+                        <field name="date_availability"/>
+                        <field name="owner"/>
+                        <field name="telephone"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Description">
+                        <field name="description"/>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+         <!-- Action -->
+        <record id="test_model_action" model="ir.actions.act_window">
+            <field name="name">Hector</field>
+            <field name="res_model">estate.property</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+         <!-- Menu -->
+        <menuitem id="test_menu_root" name="Estate Property">
+            <menuitem id="test_first_level_menu" name="Menu">
+                <menuitem id="test_model_menu_action" action="test_model_action"/>
+            </menuitem>
+        </menuitem>
+
+    </data>
+</odoo>
